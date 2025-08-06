@@ -3,247 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleapp.css">
+    <link rel="stylesheet" href="https://galesistemas.github.io/styleappNovReporte/styleapp.css">
     <title>Reporte de Tareas Pendientes</title>
 </head>
 <body>
     <div class="document-header">
-        <h1>INFORME DE REPORTES</h1>
-        <h2>Estado de Asignaciones por Departamento</h2>
+        <div class="document-title">INFORME DE REPORTES</div>
+        <div class="document-subtitle">Estado de Asignaciones por Departamento</div>
     </div>
 
-    <!-- Sección AUX. ADMIN -->
-    <div class="section">
-        <h3>AUX. ADMIN <span class="report-number">Dept. 01</span></h3>
-        <p>
-            &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "AUX. ADMIN", [status]="Pendiente"))&gt;&gt;
-        </p>
-
-        <div class="report-item">
-            <div class="report-grid">
-                <div class="field-row">
-                    <span class="field-label">ID:</span>
-                    <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Fecha:</span>
-                    <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Lugar:</span>
-                    <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Sala:</span>
-                    <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Objeto(s):</span>
-                    <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Necesario:</span>
-                    <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
-                </div>
+    <div class="cards-container">
+        <!-- Sección AUX. ADMIN -->
+        <div class="department-card">
+            <div class="section-header">
+                <h3>AUX. ADMIN</h3>
+                <span class="report-number">Dept. 01</span>
             </div>
+            
+            <p>
+                &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "AUX. ADMIN", [status]="Pendiente"))&gt;&gt;
+            </p>
 
-            <div class="field-row">
-                <span class="field-label">Detalles:</span>
-                <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
-            </div>
+            <div class="report-item">
+                <div class="report-grid">
+                    <div class="field-row">
+                        <span class="field-label">ID:</span>
+                        <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Fecha:</span>
+                        <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Lugar:</span>
+                        <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Sala:</span>
+                        <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Objeto(s):</span>
+                        <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Necesario:</span>
+                        <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
+                    </div>
+                </div>
 
-            <div class="field-row">
-                <span class="field-label">Prioridad:</span>
-                <span class="field-value">
-                    <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
-                        &lt;&lt;[PRIORIDAD]&gt;&gt;
+                <div class="field-row">
+                    <span class="field-label">Detalles:</span>
+                    <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
+                </div>
+
+                <div class="field-row">
+                    <span class="field-label">Prioridad:</span>
+                    <span class="field-value">
+                        <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
+                            &lt;&lt;[PRIORIDAD]&gt;&gt;
+                        </span>
                     </span>
-                </span>
+                </div>
+
+                <div class="additional-info">
+                    <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt; | 
+
+                </div>
             </div>
 
-            <div class="additional-info">
-                <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt;
-            </div>
+            <p>&lt;&lt;End&gt;&gt;</p>
         </div>
 
-        <p>&lt;&lt;End&gt;&gt;</p>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Sección AUX MANTTO -->
-    <div class="section">
-        <h3>AUX MANTTO <span class="report-number">Dept. 02</span></h3>
-        <p>
-            &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "AUX MANTTO", [status]="Pendiente"))&gt;&gt;
-        </p>
-
-        <div class="report-item">
-            <div class="report-grid">
-                <div class="field-row">
-                    <span class="field-label">ID:</span>
-                    <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Fecha:</span>
-                    <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Lugar:</span>
-                    <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Sala:</span>
-                    <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Objeto(s):</span>
-                    <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Necesario:</span>
-                    <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
-                </div>
+        <!-- Sección AUX MANTTO -->
+        <div class="department-card">
+            <div class="section-header">
+                <h3>AUX MANTTO</h3>
+                <span class="report-number">Dept. 02</span>
             </div>
+            
+            <p>
+                &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "AUX MANTTO", [status]="Pendiente"))&gt;&gt;
+            </p>
 
-            <div class="field-row">
-                <span class="field-label">Detalles:</span>
-                <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
-            </div>
+            <div class="report-item">
+                <div class="report-grid">
+                    <div class="field-row">
+                        <span class="field-label">ID:</span>
+                        <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Fecha:</span>
+                        <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Lugar:</span>
+                        <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Sala:</span>
+                        <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Objeto(s):</span>
+                        <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Necesario:</span>
+                        <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
+                    </div>
+                </div>
 
-            <div class="field-row">
-                <span class="field-label">Prioridad:</span>
-                <span class="field-value">
-                    <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
-                        &lt;&lt;[PRIORIDAD]&gt;&gt;
+                <div class="field-row">
+                    <span class="field-label">Detalles:</span>
+                    <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
+                </div>
+
+                <div class="field-row">
+                    <span class="field-label">Prioridad:</span>
+                    <span class="field-value">
+                        <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
+                            &lt;&lt;[PRIORIDAD]&gt;&gt;
+                        </span>
                     </span>
-                </span>
+                </div>
+
+                <div class="additional-info">
+                    <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt; | 
+
+                </div>
             </div>
 
-            <div class="additional-info">
-                <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt;
-            </div>
+            <p>&lt;&lt;End&gt;&gt;</p>
         </div>
 
-        <p>&lt;&lt;End&gt;&gt;</p>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Sección PROVEEDOR EXTERNO -->
-    <div class="section">
-        <h3>PROVEEDOR EXTERNO <span class="report-number">Dept. 03</span></h3>
-        <p>
-            &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "PROVEEDOR EXTERNO", [status]="Pendiente"))&gt;&gt;
-        </p>
-
-        <div class="report-item">
-            <div class="report-grid">
-                <div class="field-row">
-                    <span class="field-label">ID:</span>
-                    <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Fecha:</span>
-                    <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Lugar:</span>
-                    <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Sala:</span>
-                    <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Objeto(s):</span>
-                    <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Necesario:</span>
-                    <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
-                </div>
+        <!-- Sección PROVEEDOR EXTERNO -->
+        <div class="department-card">
+            <div class="section-header">
+                <h3>PROVEEDOR EXTERNO</h3>
+                <span class="report-number">Dept. 03</span>
             </div>
+            
+            <p>
+                &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "PROVEEDOR EXTERNO", [status]="Pendiente"))&gt;&gt;
+            </p>
 
-            <div class="field-row">
-                <span class="field-label">Detalles:</span>
-                <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
-            </div>
+            <div class="report-item">
+                <div class="report-grid">
+                    <div class="field-row">
+                        <span class="field-label">ID:</span>
+                        <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Fecha:</span>
+                        <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Lugar:</span>
+                        <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Sala:</span>
+                        <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Objeto(s):</span>
+                        <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Necesario:</span>
+                        <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
+                    </div>
+                </div>
 
-            <div class="field-row">
-                <span class="field-label">Prioridad:</span>
-                <span class="field-value">
-                    <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
-                        &lt;&lt;[PRIORIDAD]&gt;&gt;
+                <div class="field-row">
+                    <span class="field-label">Detalles:</span>
+                    <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
+                </div>
+
+                <div class="field-row">
+                    <span class="field-label">Prioridad:</span>
+                    <span class="field-value">
+                        <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
+                            &lt;&lt;[PRIORIDAD]&gt;&gt;
+                        </span>
                     </span>
-                </span>
+                </div>
+
+                <div class="additional-info">
+                    <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt;
+                </div>
             </div>
 
-            <div class="additional-info">
-                <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt;
-            </div>
+            <p>&lt;&lt;End&gt;&gt;</p>
         </div>
 
-        <p>&lt;&lt;End&gt;&gt;</p>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- Sección OSBOR -->
-    <div class="section">
-        <h3>OSBOR <span class="report-number">Dept. 04</span></h3>
-        <p>
-            &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "OSBOR", [status]="Pendiente"))&gt;&gt;
-        </p>
-
-        <div class="report-item">
-            <div class="report-grid">
-                <div class="field-row">
-                    <span class="field-label">ID:</span>
-                    <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Fecha:</span>
-                    <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Lugar:</span>
-                    <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Sala:</span>
-                    <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Objeto(s):</span>
-                    <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
-                </div>
-                <div class="field-row">
-                    <span class="field-label">Necesario:</span>
-                    <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
-                </div>
+        <!-- Sección OSBOR -->
+        <div class="department-card">
+            <div class="section-header">
+                <h3>OSBOR</h3>
+                <span class="report-number">Dept. 04</span>
             </div>
+            
+            <p>
+                &lt;&lt;Start: FILTER(Reportes, AND([ASIGANDO A] = "OSBOR", [status]="Pendiente"))&gt;&gt;
+            </p>
 
-            <div class="field-row">
-                <span class="field-label">Detalles:</span>
-                <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
-            </div>
+            <div class="report-item">
+                <div class="report-grid">
+                    <div class="field-row">
+                        <span class="field-label">ID:</span>
+                        <span class="field-value">&lt;&lt;[Report_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Fecha:</span>
+                        <span class="field-value">&lt;&lt;[Date]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Lugar:</span>
+                        <span class="field-value">&lt;&lt;[Place]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Sala:</span>
+                        <span class="field-value">&lt;&lt;[Room_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Objeto(s):</span>
+                        <span class="field-value">&lt;&lt;[OBJECTS_ID]&gt;&gt;</span>
+                    </div>
+                    <div class="field-row">
+                        <span class="field-label">Necesario:</span>
+                        <span class="field-value">&lt;&lt;[Needed]&gt;&gt;</span>
+                    </div>
+                </div>
 
-            <div class="field-row">
-                <span class="field-label">Prioridad:</span>
-                <span class="field-value">
-                    <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
-                        &lt;&lt;[PRIORIDAD]&gt;&gt;
+                <div class="field-row">
+                    <span class="field-label">Detalles:</span>
+                    <span class="field-value">&lt;&lt;[Details]&gt;&gt;</span>
+                </div>
+
+                <div class="field-row">
+                    <span class="field-label">Prioridad:</span>
+                    <span class="field-value">
+                        <span class="priority-badge priority-&lt;&lt;LOWER([PRIORIDAD])&gt;&gt;">
+                            &lt;&lt;[PRIORIDAD]&gt;&gt;
+                        </span>
                     </span>
-                </span>
+                </div>
+
+                <div class="additional-info">
+                    <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt; | 
+
+                </div>
             </div>
 
-            <div class="additional-info">
-                <strong>Fecha Asignación:</strong> &lt;&lt;[FECHA DE ASIGNACIÓN]&gt;&gt;
-            </div>
+            <p>&lt;&lt;End&gt;&gt;</p>
         </div>
-
-        <p>&lt;&lt;End&gt;&gt;</p>
     </div>
 
     <div class="footer">
