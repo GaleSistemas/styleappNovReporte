@@ -45,7 +45,7 @@ body {
     max-width: 100%;
 }
 
-/* Sección de departamento - Contiene múltiples solicitudes horizontalmente */
+/* Sección de departamento - Contiene múltiples solicitudes horizontalmente + Salto de página */
 .department-section {
     width: 100%;
     margin-bottom: 20px;
@@ -56,6 +56,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    page-break-before: always;
+    break-before: page;
+}
+
+/* Primera sección sin salto de página */
+.department-section:first-of-type {
+    page-break-before: avoid;
+    break-before: avoid;
 }
 
 /* Header del departamento - ancho completo */
