@@ -1,54 +1,170 @@
-body {
-            font-family: Arial, sans-serif;
+ <style>
+        @page {
+            size: A4;
+            margin: 2cm 1.5cm;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
             color: #333;
+            background-color: #f8f9fa;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
+        .document-header {
+            text-align: center;
+            margin-bottom: 30px;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
-        header {
-            text-align: center;
-            margin-bottom: 20px;
+        .document-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
         
-        .logo {
-            max-width: 200px;
-        }
-        
-        h1 {
-            color: #2a9d8f; /* Verde similar a los iconos */
-            text-align: center;
-        }
-        
-        .content p {
+        .document-subtitle {
             font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            page-break-inside: avoid;
+        }
+        
+        .section-header {
+            background: linear-gradient(90deg, #4a90e2, #357abd);
+            color: white;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 3px 10px rgba(74, 144, 226, 0.3);
+        }
+        
+        .report-item {
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow: hidden;
+            page-break-inside: avoid;
+        }
+        
+        .report-content {
+            padding: 20px;
+        }
+        
+        .field-row {
+            display: flex;
+            margin-bottom: 12px;
+            align-items: flex-start;
+        }
+        
+        .field-label {
+            font-weight: 600;
+            color: #2c3e50;
+            min-width: 120px;
+            padding-right: 15px;
+            font-size: 14px;
+        }
+        
+        .field-value {
+            flex: 1;
+            color: #34495e;
+            font-size: 14px;
             line-height: 1.5;
+            word-wrap: break-word;
         }
         
-        ul {
-            list-style: none;
-            padding: 0;
+        .priority-high {
+            background-color: #fee;
+            border-left: 4px solid #e74c3c;
         }
         
-        ul li {
-            margin-bottom: 10px;
+        .priority-medium {
+            background-color: #fff8e1;
+            border-left: 4px solid #f39c12;
         }
         
-        footer {
+        .priority-low {
+            background-color: #f0fff4;
+            border-left: 4px solid #27ae60;
+        }
+        
+        .priority-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .priority-alta {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .priority-media {
+            background-color: #f39c12;
+            color: white;
+        }
+        
+        .priority-baja {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .empty-section {
             text-align: center;
-            margin-top: 20px;
+            padding: 40px;
+            color: #7f8c8d;
+            font-style: italic;
+            background: white;
+            border-radius: 8px;
+            border: 2px dashed #bdc3c7;
         }
         
-        .footer-content {
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
-            color: #666;
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 12px;
+            padding: 20px;
+            border-top: 1px solid #ecf0f1;
         }
+        
+        @media print {
+            body {
+                background-color: white;
+            }
+            
+            .document-header {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .section-header {
+                background: #4a90e2 !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
