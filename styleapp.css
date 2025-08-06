@@ -1,132 +1,179 @@
-/* ESTILOS OPTIMIZADOS PARA IMPRESIÓN */
+/* ESTILOS OPTIMIZADOS PARA GENERACIÓN DIRECTA DE PDF */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 15px;
-    background-color: #fff;
-    color: #333;
-    font-size: 12px;
-    line-height: 1.4;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 11px;
+    line-height: 1.3;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .document-header {
     text-align: center;
     margin-bottom: 20px;
-    padding: 15px;
+    padding: 12px;
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
-    border-radius: 6px;
-    page-break-after: avoid;
+    border-radius: 4px;
+    width: 100%;
 }
 
 .document-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     color: #212529;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    margin-top: 0;
 }
 
 .document-subtitle {
-    font-size: 14px;
+    font-size: 13px;
     color: #6c757d;
     margin: 0;
 }
 
-/* Sección de departamento - Eliminamos grid y usamos flexbox */
-.department-section {
-    margin-bottom: 25px;
-    background: #fff;
-    border: 1px solid #e9ecef;
-    border-radius: 6px;
-    padding: 15px;
-    page-break-inside: avoid;
-    break-inside: avoid;
+/* Contenedor principal para evitar problemas de layout */
+.content-wrapper {
+    width: 100%;
+    max-width: 100%;
 }
 
+/* Sección de departamento - Contiene múltiples solicitudes horizontalmente */
+.department-section {
+    width: 100%;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Header del departamento - ancho completo */
 .section-header {
     background-color: #e9ecef;
-    padding: 8px 12px;
-    border-radius: 4px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    page-break-after: avoid;
+    padding: 8px 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    display: block;
+    flex-basis: 100%;
+    order: -1;
 }
 
 .section-header h3 {
+    display: inline-block;
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: bold;
     color: #495057;
+    float: left;
 }
 
 .report-number {
     background-color: #495057;
     color: white;
     padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 10px;
+    border-radius: 2px;
+    font-size: 9px;
     font-weight: bold;
+    float: right;
+    margin-top: 1px;
 }
 
-/* Items de reporte - Estructura vertical optimizada */
+/* Clear floats */
+.section-header::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Cada solicitud - se ajusta automáticamente según espacio disponible */
 .report-item {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
+    flex: 1 1 300px;
+    min-width: 280px;
+    max-width: calc(50% - 5px);
+    padding: 10px;
+    margin-bottom: 0;
     border: 1px solid #dee2e6;
-    border-radius: 4px;
-    background-color: #f8f9fa;
-    page-break-inside: avoid;
-    break-inside: avoid;
+    border-radius: 3px;
+    background-color: #fafafa;
+    display: block;
 }
 
-/* Grid adaptativo que se convierte en columnas verticales en pantallas pequeñas */
+/* Layout interno - campos en columna única para mejor legibilidad */
 .report-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
+    width: 100%;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .report-grid .field-row {
-    flex: 1 1 200px;
-    min-width: 180px;
-    margin-bottom: 6px;
+    width: 100%;
+    margin-bottom: 4px;
+    float: none;
+}
+
+/* Ya no necesitamos clear después del grid */
+.report-grid::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .field-row {
-    margin-bottom: 6px;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    margin-bottom: 5px;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
 }
 
 .field-label {
     font-weight: bold;
-    min-width: 80px;
     color: #495057;
-    margin-right: 8px;
-    font-size: 11px;
+    font-size: 10px;
+    display: inline;
+    margin-right: 4px;
+}
+
+.field-label::after {
+    content: ": ";
 }
 
 .field-value {
-    flex: 1;
+    color: #212529;
+    font-size: 10px;
+    display: inline;
     word-wrap: break-word;
     word-break: break-word;
-    font-size: 11px;
-    color: #212529;
 }
 
-/* Badges de prioridad optimizados */
+/* Campos que ocupan ancho completo */
+.field-row.full-width {
+    width: 100% !important;
+    float: none !important;
+    margin-right: 0 !important;
+    clear: both;
+}
+
+/* Badges de prioridad más compactos */
 .priority-badge {
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    font-size: 9px;
     font-weight: bold;
     display: inline-block;
     text-transform: uppercase;
+    margin-left: 2px;
 }
 
 .priority-alto,
@@ -151,132 +198,65 @@ body {
 }
 
 .additional-info {
-    font-size: 10px;
+    font-size: 9px;
     color: #6c757d;
-    margin-top: 10px;
-    padding-top: 8px;
+    margin-top: 8px;
+    padding-top: 6px;
     border-top: 1px solid #dee2e6;
+    width: 100%;
+    clear: both;
 }
 
 .divider {
     height: 1px;
     background-color: #dee2e6;
-    margin: 20px 0;
-    page-break-after: avoid;
+    margin: 15px 0;
+    width: 100%;
+    clear: both;
 }
 
 .footer {
-    margin-top: 30px;
-    font-size: 10px;
+    margin-top: 25px;
+    font-size: 9px;
     color: #6c757d;
     text-align: center;
-    padding: 12px;
+    padding: 10px;
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
-    border-radius: 4px;
-    page-break-inside: avoid;
+    border-radius: 3px;
+    width: 100%;
+    clear: both;
 }
 
-/* ESTILOS ESPECÍFICOS PARA IMPRESIÓN */
-@media print {
-    body {
-        background-color: white !important;
-        padding: 10mm;
-        font-size: 10px;
-    }
-    
-    .document-header {
-        background-color: #f5f5f5 !important;
-        border: 1px solid #ccc !important;
-        margin-bottom: 15px;
-    }
-    
-    .department-section {
-        background: white !important;
-        border: 1px solid #999 !important;
-        margin-bottom: 20px;
-        page-break-inside: avoid;
-    }
-    
-    .section-header {
-        background-color: #e5e5e5 !important;
-        page-break-after: avoid;
-    }
-    
-    .report-item {
-        background-color: #fafafa !important;
-        border: 1px solid #ccc !important;
-        page-break-inside: avoid;
-        margin-bottom: 10px;
-    }
-    
-    /* Forzar estructura vertical en impresión */
-    .report-grid {
-        display: block !important;
-    }
-    
-    .report-grid .field-row {
-        display: block !important;
-        margin-bottom: 4px;
-        page-break-inside: avoid;
-    }
-    
-    .field-row {
-        display: block !important;
-        margin-bottom: 4px;
-    }
-    
-    .field-label {
-        display: inline;
-        margin-right: 5px;
-    }
-    
-    .field-value {
-        display: inline;
-    }
-    
-    .priority-badge {
-        border: 1px solid #666 !important;
-    }
-    
-    .divider {
-        background-color: #999 !important;
-    }
-    
-    .footer {
-        background-color: #f0f0f0 !important;
-        border: 1px solid #999 !important;
-    }
+.footer p {
+    margin: 2px 0;
 }
 
-/* RESPONSIVE PARA PANTALLAS PEQUEÑAS */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 10px;
-        font-size: 11px;
-    }
-    
-    .report-grid {
-        display: block;
-    }
-    
-    .report-grid .field-row {
-        display: block;
-        margin-bottom: 5px;
-    }
-    
-    .field-row {
-        display: block;
-    }
-    
-    .field-label {
-        display: block;
-        margin-bottom: 2px;
-        font-weight: bold;
-    }
-    
-    .field-value {
-        display: block;
-        margin-left: 0;
-    }
+/* Evitar problemas de overflow */
+.report-item * {
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
+/* Asegurar que textos largos no rompan el layout */
+.field-value {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Párrafos de filtro - ancho completo */
+.department-section > p {
+    width: 100%;
+    flex-basis: 100%;
+    margin: 5px 0;
+    font-size: 10px;
+    color: #6c757d;
+}
+
+/* Limpiar cualquier float restante */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
 }
