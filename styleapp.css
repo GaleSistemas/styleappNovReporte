@@ -1,8 +1,8 @@
-/* ESTILOS OPTIMIZADOS PARA TAMAÑO OFICIO Y SIN CORTES ABRUPTOS */
+/* ESTILOS OPTIMIZADOS PARA TAMAÑO OFICIO CON MÁRGENES REDUCIDOS */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 10mm;
+    padding: 8mm 5mm; /* Reducido de 10mm a 5mm en laterales */
     background-color: #ffffff;
     color: #333333;
     font-size: 10px;
@@ -16,18 +16,9 @@ body {
     box-sizing: border-box;
 }
 
-/* Header principal - MÁS COMPACTO, se repite en cada página */
+/* Header principal - OCULTO para evitar duplicación */
 .document-header {
-    text-align: center;
-    margin-bottom: 8mm;
-    padding: 4mm;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 190mm;
-    page-break-after: avoid;
-    break-after: avoid;
+    display: none;
 }
 
 .document-title {
@@ -50,10 +41,10 @@ body {
     max-width: 100%;
 }
 
-/* Sección de departamento - CON HEADER REPETIDO en cada página */
+/* Sección de departamento - MÁS ANCHA, mejor uso del espacio */
 .department-section {
     width: 100%;
-    max-width: 190mm;
+    max-width: 200mm; /* Aumentado de 190mm a 200mm */
     margin-bottom: 10mm;
     background: #ffffff;
     border: 1px solid #e9ecef;
@@ -85,7 +76,7 @@ body {
     flex-basis: 100%;
 }
 
-/* Primera sección sin salto de página */
+/* Primera sección SIN salto de página ya que no hay header previo */
 .department-section:first-of-type {
     page-break-before: avoid;
     break-before: avoid;
@@ -130,11 +121,11 @@ body {
     clear: both;
 }
 
-/* Cada solicitud - NUNCA se divide entre páginas */
+/* Cada solicitud - aprovecha mejor el ancho disponible */
 .report-item {
-    flex: 1 1 280px;
-    min-width: 250px;
-    max-width: calc(50% - 8px);
+    flex: 1 1 290px; /* Aumentado de 280px a 290px */
+    min-width: 280px; /* Aumentado de 250px a 280px */
+    max-width: calc(50% - 6px); /* Reducido gap de 8px a 6px */
     padding: 8px;
     margin-bottom: 0;
     border: 1px solid #dee2e6;
