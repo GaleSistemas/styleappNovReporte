@@ -26,14 +26,16 @@
             color: #666;
         }
         
-        .department-section {
-            margin-bottom: 30px;
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
+            .department-section {
+                margin-bottom: 30px;
+                background: white;
+                border-radius: 8px;
+                padding: 20px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
         .section-header {
             background-color: #f0f0f0;
             padding: 10px 15px;
@@ -52,14 +54,17 @@
             font-size: 12px;
         }
         
-        .report-item {
-            margin: 15px 0;
-            padding: 15px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            background-color: #fafafa;
-        }
-        
+            .report-item {
+                flex: 1 1 300px;
+                max-width: 400px; 
+                margin: 0;
+                padding: 15px;
+                border: 1px solid #eee;
+                border-radius: 8px;
+                background-color: #fafafa;
+                box-sizing: border-box;
+            }
+                    
         .report-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
