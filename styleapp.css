@@ -124,3 +124,39 @@
             background-color: #f9f9f9;
             border-radius: 6px;
         }
+
+@media print {
+    body {
+        background-color: white !important;
+        padding: 0;
+    }
+
+    .department-section {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+
+    .report-item {
+        display: block !important;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin-bottom: 20px;
+    }
+
+    .report-grid {
+        display: block !important;
+    }
+
+    .divider {
+        page-break-after: always;
+        height: 0;
+        margin: 0;
+        border: none;
+    }
+
+    .footer {
+        page-break-before: always;
+    }
+}
