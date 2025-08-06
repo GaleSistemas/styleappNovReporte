@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Tareas Pendientes</title>
+</head>
+<body>
+    <div class="document-header">
+        <div class="document-title">REPORTE DE TAREAS PENDIENTES</div>
+        <div class="document-subtitle">Estado de Asignaciones por Departamento</div>
+    </div>
+
+    <!-- Sección AUX. ADMIN -->
+    <div class="section">
+        <div class="section-header">AUX. ADMIN</div>
+        
+        <<Start: FILTER("Reportes", AND([ASIGANDO A] = "AUX. ADMIN", [status] = "Pendiente"))>>
+        <div class="report-item">
+            <div class="report-content">
+                <div class="field-row">
+                    <div class="field-label">Lugar:</div>
+                    <div class="field-value"><<[Place]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Sala:</div>
+                    <div class="field-value"><<[Room_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Objeto(s):</div>
+                    <div class="field-value"><<[OBJECTS_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Necesario:</div>
+                    <div class="field-value"><<[Needed]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Detalles:</div>
+                    <div class="field-value"><<[Details]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Fecha:</div>
+                    <div class="field-value"><<[Date]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Prioridad:</div>
+                    <div class="field-value">
+                        <span class="priority-badge priority-<<SUBSTITUTE(LOWER([PRIORIDAD]), " ", "")>>">
+                            <<[PRIORIDAD]>>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <<End>>
+    </div>
+
+    <!-- Sección AUX MANTTO -->
+    <div class="section">
+        <div class="section-header">AUX MANTTO</div>
+        
+        <<Start: FILTER("Reportes", AND([ASIGANDO A] = "AUX MANTTO", [status] = "Pendiente"))>>
+        <div class="report-item">
+            <div class="report-content">
+                <div class="field-row">
+                    <div class="field-label">Lugar:</div>
+                    <div class="field-value"><<[Place]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Sala:</div>
+                    <div class="field-value"><<[Room_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Objeto(s):</div>
+                    <div class="field-value"><<[OBJECTS_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Necesario:</div>
+                    <div class="field-value"><<[Needed]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Detalles:</div>
+                    <div class="field-value"><<[Details]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Fecha:</div>
+                    <div class="field-value"><<[Date]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Prioridad:</div>
+                    <div class="field-value">
+                        <span class="priority-badge priority-<<SUBSTITUTE(LOWER([PRIORIDAD]), " ", "")>>">
+                            <<[PRIORIDAD]>>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <<End>>
+    </div>
+
+    <!-- Sección PROVEEDOR EXTERNO -->
+    <div class="section">
+        <div class="section-header">PROVEEDOR EXTERNO</div>
+        
+        <<Start: FILTER("Reportes", AND([ASIGANDO A] = "PROVEEDOR EXTERNO", [status] = "Pendiente"))>>
+        <div class="report-item">
+            <div class="report-content">
+                <div class="field-row">
+                    <div class="field-label">Lugar:</div>
+                    <div class="field-value"><<[Place]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Sala:</div>
+                    <div class="field-value"><<[Room_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Objeto(s):</div>
+                    <div class="field-value"><<[OBJECTS_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Necesario:</div>
+                    <div class="field-value"><<[Needed]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Detalles:</div>
+                    <div class="field-value"><<[Details]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Fecha:</div>
+                    <div class="field-value"><<[Date]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Prioridad:</div>
+                    <div class="field-value">
+                        <span class="priority-badge priority-<<SUBSTITUTE(LOWER([PRIORIDAD]), " ", "")>>">
+                            <<[PRIORIDAD]>>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <<End>>
+    </div>
+
+    <!-- Sección OSBOR -->
+    <div class="section">
+        <div class="section-header">OSBOR</div>
+        
+        <<Start: FILTER("Reportes", AND([ASIGANDO A] = "OSBOR", [status] = "Pendiente"))>>
+        <div class="report-item">
+            <div class="report-content">
+                <div class="field-row">
+                    <div class="field-label">Lugar:</div>
+                    <div class="field-value"><<[Place]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Sala:</div>
+                    <div class="field-value"><<[Room_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Objeto(s):</div>
+                    <div class="field-value"><<[OBJECTS_ID]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Necesario:</div>
+                    <div class="field-value"><<[Needed]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Detalles:</div>
+                    <div class="field-value"><<[Details]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Fecha:</div>
+                    <div class="field-value"><<[Date]>></div>
+                </div>
+                <div class="field-row">
+                    <div class="field-label">Prioridad:</div>
+                    <div class="field-value">
+                        <span class="priority-badge priority-<<SUBSTITUTE(LOWER([PRIORIDAD]), " ", "")>>">
+                            <<[PRIORIDAD]>>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <<End>>
+    </div>
+
+    <div class="footer">
+        <p>Documento generado automáticamente • Fecha de generación: <<TODAY()>></p>
+    </div>
+</body>
+</html>
+
