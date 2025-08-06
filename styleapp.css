@@ -1,13 +1,14 @@
-/* ESTILOS OPTIMIZADOS PARA GENERACIÓN DIRECTA DE PDF */
+/* ESTILOS OPTIMIZADOS PARA TAMAÑO OFICIO Y SIN CORTES ABRUPTOS */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 15px;
+    padding: 10mm;
     background-color: #ffffff;
     color: #333333;
-    font-size: 11px;
-    line-height: 1.3;
-    width: 100%;
+    font-size: 10px;
+    line-height: 1.2;
+    width: 210mm; /* Ancho oficio */
+    min-height: 330mm; /* Alto oficio */
     box-sizing: border-box;
 }
 
@@ -15,26 +16,30 @@ body {
     box-sizing: border-box;
 }
 
+/* Header principal - MÁS COMPACTO, se repite en cada página */
 .document-header {
     text-align: center;
-    margin-bottom: 20px;
-    padding: 12px;
+    margin-bottom: 8mm;
+    padding: 4mm;
     background-color: #f8f9fa;
     border: 1px solid #dee2e6;
     border-radius: 4px;
     width: 100%;
+    max-width: 190mm;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 
 .document-title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     color: #212529;
-    margin-bottom: 4px;
+    margin-bottom: 2mm;
     margin-top: 0;
 }
 
 .document-subtitle {
-    font-size: 13px;
+    font-size: 11px;
     color: #6c757d;
     margin: 0;
 }
@@ -45,19 +50,39 @@ body {
     max-width: 100%;
 }
 
-/* Sección de departamento - Contiene múltiples solicitudes horizontalmente + Salto de página */
+/* Sección de departamento - CON HEADER REPETIDO en cada página */
 .department-section {
     width: 100%;
-    margin-bottom: 20px;
+    max-width: 190mm;
+    margin-bottom: 10mm;
     background: #ffffff;
     border: 1px solid #e9ecef;
     border-radius: 4px;
-    padding: 12px;
+    padding: 6mm;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 6px;
     page-break-before: always;
     break-before: page;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Agregar header antes de cada departamento */
+.department-section::before {
+    content: "INFORME DE REPORTES - Estado de Asignaciones por Departamento";
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #212529;
+    background-color: #f8f9fa;
+    padding: 3mm;
+    border: 1px solid #dee2e6;
+    border-radius: 3px;
+    margin-bottom: 6mm;
+    order: -2;
+    flex-basis: 100%;
 }
 
 /* Primera sección sin salto de página */
@@ -66,12 +91,12 @@ body {
     break-before: avoid;
 }
 
-/* Header del departamento - ancho completo */
+/* Header del departamento - ajustado para coexistir con header repetido */
 .section-header {
     background-color: #e9ecef;
-    padding: 8px 10px;
+    padding: 6px 8px;
     border-radius: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     width: 100%;
     display: block;
     flex-basis: 100%;
@@ -105,29 +130,32 @@ body {
     clear: both;
 }
 
-/* Cada solicitud - se ajusta automáticamente según espacio disponible */
+/* Cada solicitud - NUNCA se divide entre páginas */
 .report-item {
-    flex: 1 1 300px;
-    min-width: 280px;
-    max-width: calc(50% - 5px);
-    padding: 10px;
+    flex: 1 1 280px;
+    min-width: 250px;
+    max-width: calc(50% - 8px);
+    padding: 8px;
     margin-bottom: 0;
     border: 1px solid #dee2e6;
     border-radius: 3px;
     background-color: #fafafa;
     display: block;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-sizing: border-box;
 }
 
-/* Layout interno - campos en columna única para mejor legibilidad */
+/* Layout interno - más compacto para oficio */
 .report-grid {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 6mm;
     display: block;
 }
 
 .report-grid .field-row {
     width: 100%;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     float: none;
 }
 
@@ -139,18 +167,19 @@ body {
 }
 
 .field-row {
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     width: 100%;
-    overflow: hidden;
     word-wrap: break-word;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
 .field-label {
     font-weight: bold;
     color: #495057;
-    font-size: 10px;
+    font-size: 9px;
     display: inline;
-    margin-right: 4px;
+    margin-right: 3px;
 }
 
 .field-label::after {
@@ -159,10 +188,12 @@ body {
 
 .field-value {
     color: #212529;
-    font-size: 10px;
+    font-size: 9px;
     display: inline;
     word-wrap: break-word;
     word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 /* Campos que ocupan ancho completo */
