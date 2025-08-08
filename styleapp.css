@@ -41,10 +41,10 @@ body {
     max-width: 100%;
 }
 
-/* Sección de departamento - MÁS ANCHA, mejor uso del espacio */
+/* Sección de departamento - PERMITE dividirse en múltiples páginas */
 .department-section {
     width: 100%;
-    max-width: 200mm; /* Aumentado de 190mm a 200mm */
+    max-width: 200mm;
     margin-bottom: 10mm;
     background: #ffffff;
     border: 1px solid #e9ecef;
@@ -55,11 +55,10 @@ body {
     gap: 6px;
     page-break-before: always;
     break-before: page;
-    page-break-inside: avoid;
-    break-inside: avoid;
+    /* Removido: page-break-inside: avoid y break-inside: avoid */
 }
 
-/* Agregar header antes de cada departamento */
+/* Agregar header repetido también cuando hay continuación de departamento */
 .department-section::before {
     content: "INFORME DE REPORTES - Estado de Asignaciones por Departamento";
     width: 100%;
@@ -74,6 +73,8 @@ body {
     margin-bottom: 6mm;
     order: -2;
     flex-basis: 100%;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 
 /* Primera sección SIN salto de página ya que no hay header previo */
@@ -82,7 +83,7 @@ body {
     break-before: avoid;
 }
 
-/* Header del departamento - ajustado para coexistir con header repetido */
+/* Header del departamento - se mantiene con su sección */
 .section-header {
     background-color: #e9ecef;
     padding: 6px 8px;
@@ -92,6 +93,8 @@ body {
     display: block;
     flex-basis: 100%;
     order: -1;
+    page-break-after: avoid;
+    break-after: avoid;
 }
 
 .section-header h3 {
@@ -121,19 +124,19 @@ body {
     clear: both;
 }
 
-/* Cada solicitud - aprovecha mejor el ancho disponible */
+/* Cada solicitud - PERMITE salto de página cuando la sección es muy larga */
 .report-item {
-    flex: 1 1 290px; /* Aumentado de 280px a 290px */
-    min-width: 280px; /* Aumentado de 250px a 280px */
-    max-width: calc(50% - 6px); /* Reducido gap de 8px a 6px */
+    flex: 1 1 290px;
+    min-width: 280px;
+    max-width: calc(50% - 6px);
     padding: 8px;
-    margin-bottom: 0;
+    margin-bottom: 6px; /* Agregado margen para separar mejor los tickets */
     border: 1px solid #dee2e6;
     border-radius: 3px;
     background-color: #fafafa;
     display: block;
-    page-break-inside: avoid;
-    break-inside: avoid;
+    page-break-inside: avoid; /* Mantiene cada ticket completo */
+    break-inside: avoid; /* Mantiene cada ticket completo */
     box-sizing: border-box;
 }
 
