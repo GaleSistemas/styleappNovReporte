@@ -1,67 +1,28 @@
-/* ESTILOS OPTIMIZADOS PARA TAMAÑO OFICIO CON MÁRGENES REDUCIDOS */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    padding: 8mm 5mm; /* Reducido de 10mm a 5mm en laterales */
+    padding: 0;              /* los márgenes los pones en AppSheet */
     background-color: #ffffff;
     color: #333333;
     font-size: 10px;
     line-height: 1.2;
-    width: 210mm; /* Ancho oficio */
-    min-height: 330mm; /* Alto oficio */
-    box-sizing: border-box;
+    /* sin width fijo ni min-height */
 }
 
-* {
-    box-sizing: border-box;
-}
-
-/* Header principal - OCULTO para evitar duplicación */
-.document-header {
-    display: none;
-}
-
-.document-title {
-    font-size: 14px;
-    font-weight: bold;
-    color: #212529;
-    margin-bottom: 2mm;
-    margin-top: 0;
-}
-
-.document-subtitle {
-    font-size: 11px;
-    color: #6c757d;
-    margin: 0;
-}
-
-/* Contenedor principal para evitar problemas de layout */
-.content-wrapper {
-    width: 100%;
-    max-width: 100%;
-}
-
-/* Sección de departamento - PERMITE dividirse en múltiples páginas */
+/* Sección: bloque normal, SIN flex y SIN page-break-before */
 .department-section {
+    display: block;
     width: 100%;
-    max-width: 200mm;
-    margin-bottom: 10mm;
+    margin-bottom: 6mm;
+    padding: 4mm;
     background: #ffffff;
     border: 1px solid #e9ecef;
-    border-radius: 4px;
-    padding: 6mm;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    page-break-before: always;
-    break-before: page;
-    /* Removido: page-break-inside: avoid y break-inside: avoid */
 }
 
-/* Agregar header repetido también cuando hay continuación de departamento */
+/* Título superior de cada sección */
 .department-section::before {
     content: "INFORME DE REPORTES - Estado de Asignaciones por Departamento";
-    width: 100%;
+    display: block;
     text-align: center;
     font-size: 12px;
     font-weight: bold;
@@ -69,227 +30,43 @@ body {
     background-color: #f8f9fa;
     padding: 3mm;
     border: 1px solid #dee2e6;
-    border-radius: 3px;
-    margin-bottom: 6mm;
-    order: -2;
-    flex-basis: 100%;
+    margin-bottom: 4mm;
     page-break-after: avoid;
-    break-after: avoid;
 }
 
-/* Primera sección SIN salto de página ya que no hay header previo */
-.department-section:first-of-type {
-    page-break-before: avoid;
-    break-before: avoid;
-}
-
-/* Header del departamento - se mantiene con su sección */
 .section-header {
+    display: block;
     background-color: #e9ecef;
     padding: 6px 8px;
-    border-radius: 3px;
     margin-bottom: 6px;
-    width: 100%;
-    display: block;
-    flex-basis: 100%;
-    order: -1;
     page-break-after: avoid;
-    break-after: avoid;
 }
 
-.section-header h3 {
-    display: inline-block;
-    margin: 0;
-    font-size: 13px;
-    font-weight: bold;
-    color: #495057;
-    float: left;
-}
-
-.report-number {
-    background-color: #495057;
-    color: white;
-    padding: 2px 6px;
-    border-radius: 2px;
-    font-size: 9px;
-    font-weight: bold;
-    float: right;
-    margin-top: 1px;
-}
-
-/* Clear floats */
-.section-header::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Cada solicitud - PERMITE salto de página cuando la sección es muy larga */
+/* Tarjetas en 2 columnas con inline-block: no se parten entre páginas */
 .report-item {
-    flex: 1 1 290px;
-    min-width: 280px;
-    max-width: calc(50% - 6px);
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+    margin: 0 0 6px 0;
     padding: 8px;
-    margin-bottom: 6px; /* Agregado margen para separar mejor los tickets */
     border: 1px solid #dee2e6;
-    border-radius: 3px;
     background-color: #fafafa;
-    display: block;
-    page-break-inside: avoid; /* Mantiene cada ticket completo */
-    break-inside: avoid; /* Mantiene cada ticket completo */
-    box-sizing: border-box;
-}
-
-/* Layout interno - más compacto para oficio */
-.report-grid {
-    width: 100%;
-    margin-bottom: 6mm;
-    display: block;
-}
-
-.report-grid .field-row {
-    width: 100%;
-    margin-bottom: 2px;
-    float: none;
-}
-
-/* Ya no necesitamos clear después del grid */
-.report-grid::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.field-row {
-    margin-bottom: 3px;
-    width: 100%;
-    word-wrap: break-word;
     page-break-inside: avoid;
     break-inside: avoid;
 }
 
-.field-label {
-    font-weight: bold;
-    color: #495057;
-    font-size: 9px;
-    display: inline;
-    margin-right: 3px;
-}
-
-.field-label::after {
-    content: ": ";
-}
-
-.field-value {
-    color: #212529;
-    font-size: 9px;
-    display: inline;
-    word-wrap: break-word;
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
-
-/* Campos que ocupan ancho completo */
-.field-row.full-width {
-    width: 100% !important;
-    float: none !important;
-    margin-right: 0 !important;
-    clear: both;
-}
-
-/* Badges de prioridad más compactos */
-.priority-badge {
-    padding: 1px 6px;
-    border-radius: 8px;
-    font-size: 9px;
-    font-weight: bold;
-    display: inline-block;
-    text-transform: uppercase;
-    margin-left: 2px;
-}
-
-.priority-alto,
-.priority-alta { 
-    background: #f8d7da; 
-    color: #721c24; 
-    border: 1px solid #f1aeb5; 
-}
-
-.priority-medio,
-.priority-media { 
-    background: #fff3cd; 
-    color: #856404; 
-    border: 1px solid #ffeaa7; 
-}
-
-.priority-bajo,
-.priority-baja { 
-    background: #d1ecf1; 
-    color: #0c5460; 
-    border: 1px solid #bee5eb; 
-}
-
-.additional-info {
-    font-size: 9px;
-    color: #6c757d;
-    margin-top: 8px;
-    padding-top: 6px;
-    border-top: 1px solid #dee2e6;
-    width: 100%;
-    clear: both;
-}
-
+/* El salto de página va en el divisor ENTRE secciones */
 .divider {
-    height: 1px;
-    background-color: #dee2e6;
-    margin: 15px 0;
-    width: 100%;
-    clear: both;
+    height: 0;
+    margin: 0;
+    border: 0;
+    page-break-after: always;
+    break-after: page;
 }
 
-.footer {
-    margin-top: 25px;
-    font-size: 9px;
-    color: #6c757d;
-    text-align: center;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-    border-radius: 3px;
-    width: 100%;
-    clear: both;
-}
-
-.footer p {
-    margin: 2px 0;
-}
-
-/* Evitar problemas de overflow */
-.report-item * {
-    max-width: 100%;
-    word-wrap: break-word;
-}
-
-/* Asegurar que textos largos no rompan el layout */
-.field-value {
-    max-width: 100%;
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
-
-/* Párrafos de filtro - ancho completo */
+/* Los <p> del Start/End no deben ocupar espacio */
 .department-section > p {
-    width: 100%;
-    flex-basis: 100%;
-    margin: 5px 0;
-    font-size: 10px;
-    color: #6c757d;
-}
-
-/* Limpiar cualquier float restante */
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+    margin: 0;
+    font-size: 0;
+    line-height: 0;
 }
