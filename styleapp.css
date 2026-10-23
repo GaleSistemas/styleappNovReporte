@@ -1,72 +1,84 @@
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;              /* los márgenes los pones en AppSheet */
-    background-color: #ffffff;
-    color: #333333;
-    font-size: 10px;
-    line-height: 1.2;
-    /* sin width fijo ni min-height */
-}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 9px;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Sección: bloque normal, SIN flex y SIN page-break-before */
-.department-section {
-    display: block;
-    width: 100%;
-    margin-bottom: 6mm;
-    padding: 4mm;
-    background: #ffffff;
-    border: 1px solid #e9ecef;
-}
+        h1 {
+            font-size: 13px;
+            text-align: center;
+            margin: 0 0 4px 0;
+        }
 
-/* Título superior de cada sección */
-.department-section::before {
-    content: "INFORME DE REPORTES - Estado de Asignaciones por Departamento";
-    display: block;
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    color: #212529;
-    background-color: #f8f9fa;
-    padding: 3mm;
-    border: 1px solid #dee2e6;
-    margin-bottom: 4mm;
-    page-break-after: avoid;
-}
+        .sub {
+            text-align: center;
+            font-size: 9px;
+            color: #666;
+            margin: 0 0 8px 0;
+        }
 
-.section-header {
-    display: block;
-    background-color: #e9ecef;
-    padding: 6px 8px;
-    margin-bottom: 6px;
-    page-break-after: avoid;
-}
+        /* Cada departamento empieza en hoja nueva, menos el primero */
+        .depto {
+            page-break-before: always;
+            break-before: page;
+        }
+        .depto.primero {
+            page-break-before: auto;
+            break-before: auto;
+        }
 
-/* Tarjetas en 2 columnas con inline-block: no se parten entre páginas */
-.report-item {
-    display: inline-block;
-    vertical-align: top;
-    width: 49%;
-    margin: 0 0 6px 0;
-    padding: 8px;
-    border: 1px solid #dee2e6;
-    background-color: #fafafa;
-    page-break-inside: avoid;
-    break-inside: avoid;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
 
-/* El salto de página va en el divisor ENTRE secciones */
-.divider {
-    height: 0;
-    margin: 0;
-    border: 0;
-    page-break-after: always;
-    break-after: page;
-}
+        /* El thead se repite solo en cada página */
+        thead {
+            display: table-header-group;
+        }
 
-/* Los <p> del Start/End no deben ocupar espacio */
-.department-section > p {
-    margin: 0;
-    font-size: 0;
-    line-height: 0;
-}
+        tr {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        th {
+            background: #495057;
+            color: #fff;
+            font-size: 9px;
+            text-align: left;
+            padding: 4px;
+            border: 1px solid #495057;
+        }
+
+        th.depto-titulo {
+            background: #e9ecef;
+            color: #222;
+            font-size: 12px;
+            padding: 6px;
+            border: 1px solid #ccc;
+        }
+
+        td {
+            padding: 4px;
+            border: 1px solid #ccc;
+            vertical-align: top;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        tbody tr:nth-child(even) td {
+            background: #f7f7f7;
+        }
+
+        .pie {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 8px;
+            color: #777;
+        }
+    </style>
